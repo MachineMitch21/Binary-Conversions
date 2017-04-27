@@ -4,8 +4,8 @@
 int main(int argv, char *argc[]){
 
 	BinConverter bin_con;
-	
-	std::cout << bin_con.getBin(std::to_string(argc[2]), argc[1][0]) << std::endl;
+	std::string str(argc[2]);
+	std::cout << bin_con.getBin(str, argc[1][0]) << std::endl;
 }
 
 

@@ -10,10 +10,10 @@ BinConverter::~BinConverter(){
 }
 
 std::string BinConverter::getBin(std::string str, char c){
-	return (c == 'i' ? bin_i(c_str(str)) : bin_c(c_str(str)));
+	return (c == 'i' ? bin_i(str.c_str()) : bin_c(str.c_str()));
 }
 
-std::string BinConverter::bin_i(char* _val){
+std::string BinConverter::bin_i(const char* _val){
 
 	int val = atoi(_val);
 	std::string _bin;
@@ -26,7 +26,7 @@ std::string BinConverter::bin_i(char* _val){
 	return _bin;
 }
 
-std::string bin_c(char* _val){
+std::string BinConverter::bin_c(const char* _val){
 	
 	std::string _bin;
 	
@@ -43,7 +43,7 @@ std::string bin_c(char* _val){
 	return _bin;
 }
 
-void rev(std::string &str){
+void BinConverter::rev(std::string &str){
 	int n = str.length();
 	for(int i = 0; i < n/2; i++){
 		std::swap(str[i], str[n-i-1]);

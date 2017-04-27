@@ -1,15 +1,15 @@
 CPPC=g++
 CPPFLAGS= --std=c++0x -Wall -g
 
-default: test 
+default: bin_con 
 	
-test: main.o
-	$(CPPC) $(CPPFLAGS) -o test main.o
+bin_con: main.o binconverter.o
+	$(CPPC) main.o binconverter.o -o bin_con
 
-main.o: binconverter.o
+main.o: main.cpp
 	$(CPPC) $(CPPFLAGS) -c main.cpp
 
-binconverter.o: binconverter.cpp binconverter.h 
+binconverter.o: binconverter.cpp  
 	$(CPPC) $(CPPFLAGS) -c binconverter.cpp
 clean:
-	$(RM) test *.o *~
+	$(RM) bin_con *.o *~
