@@ -15,7 +15,7 @@ std::string BinConverter::getBin(std::string str, char c){
 
 std::string BinConverter::binStr(std::string bin_str, std::string flag){
 	if(isBinStr(bin_str))
-		return (flag == "bi" ? binToDec(bin_str) : flag == "bc" ? binToStr(bin_str) : "Invalid flag");
+		return (flag == "bi" ? binToDec(bin_str) : flag == "bc" ? binToStr(bin_str) : "Invalid flag: bi for DECIMAL, bc for ASCII");
 	else
 		return "Invalid binary string: Should be 1s and 0s";
 }
