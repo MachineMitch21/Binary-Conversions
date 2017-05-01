@@ -9,20 +9,15 @@ BinConverter::~BinConverter(){
 
 }
 
-int BinConverter::binToInt(std::string str){
-	
-	if(isBinStr(str)){
-
-	}
-	else{
-		return -1;
-	}
-	
-	return 0;
-}
-
 std::string BinConverter::getBin(std::string str, char c){
 	return (c == 'i' ? bin_i(str.c_str()) : bin_c(str.c_str()));
+}
+
+std::string BinConverter::binStr(std::string bin_str, std::string flag){
+	if(isBinStr(bin_str))
+		return (flag == "bi" ? binToDec(bin_str) : flag == "bc" ? binToStr(bin_str) : "Invalid flag");
+	else
+		return "Invalid binary string: Should be 1s and 0s";
 }
 
 std::string BinConverter::bin_i(const char* _val){
@@ -72,4 +67,24 @@ bool BinConverter::isBinStr(std::string str){
 			break;
 	}
 	return isBin;
+}
+
+std::string BinConverter::binToDec(std::string bin_str){
+	
+	int n = bin_str.length();
+	int p = n - 1;
+	int dec = 0;
+	int bin = 0;
+
+	for(int i = 0; i < n; i++){
+		bin = bin_str[i] - '0';
+		dec += (pow(2, p - i) * bin);
+	}
+	
+	return std::to_string(dec);
+}
+
+std::string BinConverter::binToStr(std::string bin_str){
+
+	return NULL;
 }
