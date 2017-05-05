@@ -6,11 +6,11 @@
 
 int main(int argv, char *argc[]){
 
-	std::endl;
+	std::cout << std::endl;
 	std::cout << "Binary Conversion program BINNY" << std::endl;
 	std::cout << "Written by: Mitch Schutt" << std::endl;
-	std::endl;
-	std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 
 	BinConverter bin_con;
 	std::string str(argc[2]);
