@@ -15,7 +15,7 @@ std::string BinConverter::getBin(std::string str, char c){
 
 std::string BinConverter::binStr(std::string bin_str, std::string flag){
 	if(isBinStr(bin_str))
-		return (flag == "bi" ? binToDec(bin_str) : flag == "bc" ? binToStr(bin_str) : "Invalid flag: bi for DECIMAL, bc for ASCII");
+		return (flag == "bd" ? binToDec(bin_str) : flag == "bc" ? binToStr(bin_str) : "Invalid flag: bd for DECIMAL, bc for ASCII");
 	else
 		return "Invalid binary string: Should be 1s and 0s";
 }
@@ -85,6 +85,31 @@ std::string BinConverter::binToDec(std::string bin_str){
 }
 
 std::string BinConverter::binToStr(std::string bin_str){
+	
+	int n = bin_str.length();
+	int byte_track = 0;
+	std::string byte;
+	std::string ascii;
+	char c;
+	bool doAppend = false;
 
-	return NULL;
+	for(int i = 0; i < n; i++){
+		
+		byte += bin_str[i];
+		byte_track++;	
+
+		if(byte_track == 8 || i == n - 1){
+			doAppend = true;
+			byte_track = 0;
+		}
+		
+		if(doAppend){
+			c = std::stoi(binToDec(byte));
+			ascii += c;
+			byte.clear();
+			doAppend = false;
+		}
+	}
+
+	return ascii;
 }
