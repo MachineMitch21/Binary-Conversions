@@ -137,9 +137,12 @@ std::string BinConverter::binToStr(std::string bin_str){
 		}
 		
 		if(doAppend){
-			//Get the integer equivalent this current byte and assign it to 
+			//Get the integer equivalent this current byte and assign it to our ascii_char variable
+			//The compiler will implicitly cast the int to its char equivalent
 			ascii_char = std::stoi(binToDec(byte));
 			ascii += ascii_char;
+
+			//Reset doAppend and byte for 
 			byte.clear();
 			doAppend = false;
 		}
