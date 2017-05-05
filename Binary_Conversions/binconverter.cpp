@@ -13,7 +13,7 @@ BinConverter::~BinConverter(){
 std::string BinConverter::getBin(std::string str, char c){
 
 	//If second param is i, convert as decimal else convert as ascii text
-	return (c == 'i' ? bin_i(str.c_str()) : bin_c(str.c_str()));
+	return (c == 'd' ? bin_i(str.c_str()) : bin_c(str.c_str()));
 }
 
 //Convert binary to decimal or ascii text depending on flag param
@@ -22,8 +22,8 @@ std::string BinConverter::binStr(std::string bin_str, std::string flag){
 	//Check to be sure bin_str is a true binary string
 	if(isBinStr(bin_str))
 		
-		//If flag equal to "bd" convert binary string to a decimal, if flag equal to "bc" convert binary string to ascii text
-		//Else return the Invalid flag string
+	//If flag equal to "bd" convert binary string to a decimal, if flag equal to "bc" convert binary string to ascii text
+	//Else return the Invalid flag string
 		return (flag == "bd" ? binToDec(bin_str) : flag == "bc" ? binToStr(bin_str) : "Invalid flag: bd for DECIMAL, bc for ASCII");
 	else
 		return "Invalid binary string: Should be 1s and 0s";
