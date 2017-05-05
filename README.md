@@ -4,7 +4,7 @@ Small console application for converting from decimal or ascii text to binary or
 
 Compiling the executable:
 
-    -Open the terminal from the location of the directory you copy this to.
+    -Open the terminal from the location of the directory you copy the program files to.
     -Type the word "make" into the terminal
     -An executable file called binny should be in the directory
 
