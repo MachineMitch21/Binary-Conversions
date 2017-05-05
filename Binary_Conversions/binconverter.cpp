@@ -82,7 +82,8 @@ bool BinConverter::isBinStr(std::string str){
 	
 	for(unsigned int i = 0; i < str.length(); i++){
 		//We check the current index against conditions '1' and '0' and assign isBin true if 
-		//the condition is met and false if not, then we check isBin and break out of the for loop if it is false
+		//the condition is met and false if not, then we check isBin and break out of the for loop if
+        //it is false
 		(str[i] == '1' || str[i] == '0' ? isBin = true : isBin = false);
 		
 		if(!isBin)
@@ -98,8 +99,14 @@ std::string BinConverter::binToDec(std::string bin_str){
 	int dec = 0;
 	int bin = 0;
 
+	//Loop through bin_str
 	for(int i = 0; i < n; i++){
+		//Subtract the 0 char from the current index of bin_str to get the 1 or 0 as an integer
+		//and assign it to our bin int variable
 		bin = bin_str[i] - '0';
+		//We know that binary values are found by multiplying 2 by a power depending on the index 
+		//of the binary digit.  We have already initialized p as n - 1 because the final digit in the
+		//binary sequence will be multiplied to the power of 0.
 		dec += (pow(2, p - i) * bin);
 	}
 	
@@ -112,22 +119,27 @@ std::string BinConverter::binToStr(std::string bin_str){
 	int byte_track = 0;
 	std::string byte;
 	std::string ascii;
-	char c;
+	char ascii_char;
 	bool doAppend = false;
 
 	for(int i = 0; i < n; i++){
-		
+		//Append current binary digit to our byte string and increment the byte_track
 		byte += bin_str[i];
 		byte_track++;	
 
+		//If byte_track is 8, we have a byte so we will need to calculate the ascii value of this byte
+		//We also need to make sure we calculate the ascii value of binary digits if is one less than
+		//the length of bin_str
 		if(byte_track == 8 || i == n - 1){
 			doAppend = true;
+			//Reset byte_track
 			byte_track = 0;
 		}
 		
 		if(doAppend){
-			c = std::stoi(binToDec(byte));
-			ascii += c;
+			//Get the integer equivalent this current byte and assign it to 
+			ascii_char = std::stoi(binToDec(byte));
+			ascii += ascii_char;
 			byte.clear();
 			doAppend = false;
 		}
