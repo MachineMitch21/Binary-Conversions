@@ -32,7 +32,7 @@ There are four commands to use with this program:
           Sample output: 12
           
           
-    4.  ./binny bc (binary sequence to convert to decimal value)
+    4.  ./binny bc (binary sequence to convert to ascii text)
     
           Ex.   ./binny bc 1000001
           Sample output: A
