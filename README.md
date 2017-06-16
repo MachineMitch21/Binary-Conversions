@@ -14,9 +14,9 @@ Your working directory must be the same as where the executable file is located.
 
 There are four commands to use with this program:
     
-    1.  ./binny i (value to convert to binary) 
+    1.  ./binny d (value to convert to binary) 
       
-          Ex. ./binny i 12
+          Ex. ./binny d 12
           Sample output: 1100
 
           
